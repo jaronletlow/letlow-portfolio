@@ -6,7 +6,7 @@ function App() {
   return (
     <>
 		  <h1>Welcome</h1>
-      <img src="./src/assets/chad.jpg"></img>
+      <img src="/chad.jpg"></img>
     </>
   )
 }
