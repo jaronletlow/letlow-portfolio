@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-
+import { FaInstagram, FaFacebook, FaSnapchatGhost, FaLinkedin, FaGoogle, FaGithub } from 'react-icons/fa';
 
 function SocialLink(props){
 
@@ -8,9 +8,24 @@ function SocialLink(props){
 
     const go_to_url = (link) => window.open(link);
 
+    const getSocialIcon = (name) => {
+        switch(name.toLowerCase()) {
+            case 'instagram': return <FaInstagram />;
+            case 'facebook': return <FaFacebook />;
+            case 'snapchat': return <FaSnapchatGhost />;
+            case 'linkedin': return <FaLinkedin />;
+            case 'email': return <FaGoogle />;
+            case 'github': return <FaGithub />;
+            default: return null;
+        }
+    };
+
     return (
-        <button onClick={() => go_to_url(url)}>{social}</button>
-    )
+        <button onClick={() => go_to_url(url)} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            {getSocialIcon(social)}
+            <span style={{ marginLeft: '8px' }}>{social}</span>
+        </button>
+    );
 }
 
 export default SocialLink;

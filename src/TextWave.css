@@ -1,0 +1,20 @@
+@keyframes waveAnimation {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.wave {
+    display: inline-block;
+    animation: waveAnimation 3s infinite ease-in-out;
+}
+
+@keyframes colorAnimation {
+    0%, 100% { color: #9900ff; } /* Bright purple */
+    25% { color: #5a0080; } /* Purple */
+    50% { color: #8a2be2; } /* BlueViolet */
+    75% { color: #7443d4; } /* MediumPurple */
+}
+
+.word {
+    animation: colorAnimation 10s infinite ease-in-out;
+}
