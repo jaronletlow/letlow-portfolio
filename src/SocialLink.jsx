@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { FaInstagram, FaFacebook, FaSnapchatGhost, FaLinkedin, FaGoogle, FaGithub } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaSnapchatGhost, FaLinkedin, FaEnvelope, FaGithub } from 'react-icons/fa';
 
 function SocialLink(props){
 
@@ -14,7 +14,7 @@ function SocialLink(props){
             case 'facebook': return <FaFacebook />;
             case 'snapchat': return <FaSnapchatGhost />;
             case 'linkedin': return <FaLinkedin />;
-            case 'email': return <FaGoogle />;
+            case 'email': return <FaEnvelope />;
             case 'github': return <FaGithub />;
             default: return null;
         }
