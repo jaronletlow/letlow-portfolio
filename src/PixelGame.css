@@ -1,0 +1,257 @@
+/* Fixed overlay because the site body is overflow:hidden -- the game scrolls
+   itself rather than fighting the page. */
+.pixel-game {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: #242424;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.pixel-game-inner {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pixel-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.pixel-title {
+  font-size: 1.5rem;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.pixel-close {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 1.75rem;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+}
+.pixel-close:hover {
+  color: #fff;
+  border-color: transparent;
+}
+
+.pixel-phase {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pixel-eyebrow {
+  margin: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.pixel-word {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.1;
+  text-transform: lowercase;
+}
+.pixel-word.is-correct {
+  color: #a3ce27;
+}
+
+.pixel-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  width: min(84vw, 360px);
+  aspect-ratio: 1;
+  gap: 1px;
+  padding: 1px;
+  background: rgba(255, 255, 255, 0.09);
+  border-radius: 6px;
+  touch-action: none; /* keep a drag painting instead of scrolling the page */
+  user-select: none;
+}
+.pixel-grid.is-editable {
+  cursor: crosshair;
+}
+
+.pixel-cell {
+  background: #1a1a1a;
+}
+
+.pixel-palette {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+  width: min(84vw, 360px);
+}
+
+.pixel-swatch {
+  aspect-ratio: 1;
+  padding: 0;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+.pixel-swatch:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.pixel-swatch.is-active {
+  border-color: #fff;
+  transform: scale(1.08);
+}
+
+.pixel-tools {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.pixel-tools button {
+  padding: 0.5em 1em;
+  font-size: 0.9rem;
+  color: inherit;
+}
+.pixel-tools button:disabled {
+  opacity: 0.35;
+  cursor: default;
+  border-color: transparent;
+}
+.pixel-tools button.is-active {
+  border-color: #646cff;
+  background: #2f2f4a;
+}
+
+.pixel-primary {
+  background: #646cff;
+  color: #fff;
+  font-weight: 600;
+}
+.pixel-primary:hover {
+  background: #535bf2;
+  border-color: transparent;
+}
+.pixel-primary:disabled {
+  background: #33334d;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: default;
+}
+
+.pixel-guess-form {
+  display: flex;
+  gap: 0.5rem;
+  width: min(84vw, 360px);
+}
+
+.pixel-input,
+.pixel-url {
+  flex: 1;
+  min-width: 0;
+  padding: 0.6em 0.8em;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #1a1a1a;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1rem;
+}
+.pixel-input:focus,
+.pixel-url:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+.pixel-url {
+  width: min(84vw, 360px);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.pixel-hint {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 320px;
+}
+.pixel-miss {
+  color: #e06f8b;
+}
+
+.pixel-hints {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.pixel-hints li {
+  font-size: 0.95rem;
+  color: #f7e26b;
+}
+
+.pixel-tried {
+  width: min(84vw, 360px);
+}
+
+.pixel-tried-label {
+  margin: 0 0 0.4rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.pixel-tried-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+}
+.pixel-tried-list li {
+  padding: 0.25em 0.65em;
+  border-radius: 999px;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: line-through;
+  text-decoration-color: rgba(224, 111, 139, 0.7);
+}
+
+.pixel-link-button {
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pixel-link-button:hover {
+  color: #fff;
+  border-color: transparent;
+}
+
+/* Entry point on the landing page */
+.pixel-open-button {
+  color: inherit;
+  font-size: 0.95rem;
+}
